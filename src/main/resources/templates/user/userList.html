@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원리스트</title>
+    <style>
+        table {
+            width: 100%;
+            width: 100%;
+            border: 1px solid #444444;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #444444;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>회원id</th>
+                <th>회원이름</th>
+                <th>이메일</th>
+                <th>비밀번호</th>
+                <th>전화번호</th>
+                <th>회원주소</th>
+                <th>회원타입</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.userId}">
+                    <a th:href="@{/user/info?id=${user.userId}}">
+                        userId
+                    </a>
+                </td>
+                <td th:text="${user.name}">
+                    <a th:href="@{/user/info?id=${user.name}}">
+                        name
+                    </a>
+                </td>
+                <td th:text="${user.email}">email</td>
+                <td th:text="${user.password}">password</td>
+                <td th:text="${user.phone}">phone</td>
+                <td th:text="${user.address}">address</td>
+                <td th:text="${user.userType}">userType</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
