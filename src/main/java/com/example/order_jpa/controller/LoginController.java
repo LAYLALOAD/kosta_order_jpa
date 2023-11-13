@@ -24,10 +24,9 @@ public class LoginController {
   private final LoginService loginService;
 
   @GetMapping
-  public String home() {
+  public String home(){
     return "login/home";
   }
-
 
   @GetMapping("/login")
   public String login(){

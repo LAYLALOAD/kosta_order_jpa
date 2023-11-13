@@ -17,18 +17,17 @@ public class SpringConfig implements WebMvcConfigurer {
   @Override
   public void addInterceptors(InterceptorRegistry registry) {
     registry.addInterceptor(new LogInterceptor())
-        .order(1) // 순서가 1번
-        .addPathPatterns("/**") // 하위 패스에 전부 적용
+        .order(1)  // 순서가 1번
+        .addPathPatterns("/**")  // 하위 패스에 전부 적용
         .excludePathPatterns("/css/**", "/*.ico", "/error"); // 적용 제외
 
-    registry.addInterceptor(new LogInterceptor())
-        .order(2) // 순서가 2번
+    registry.addInterceptor(new LoginInterceptor())
+        .order(2)// 순서가 2번
         .addPathPatterns("/**")
         .excludePathPatterns("/css/**", "/*.ico", "/error",
-            "/user/add", "/login", "/logout", "/product/list"); // 적용 제외
-
-    ;
+            "/user/add", "/login", "/logout", "/product/list") ;//
   }
+
 
   //@Bean
   public FilterRegistrationBean<LogFilter>   logFilter() {

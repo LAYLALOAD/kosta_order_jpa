@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.Range;
 
 @Data
 public class ProductUpdateDto {
-  private Long productId; // readonly
+  private Long productId;  // readonly
   @NotNull
   @NotBlank
   private String name;
